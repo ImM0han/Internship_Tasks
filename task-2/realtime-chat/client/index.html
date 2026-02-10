@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Live Chat (Socket.IO)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div class="brand">
+        <span class="dot"></span>
+        <div>
+          <h1>Live Chat</h1>
+          <p id="roomLabel">Not connected</p>
+        </div>
+      </div>
+      <div class="usersBox">
+        <div class="usersTitle">Online</div>
+        <div id="users" class="users"></div>
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- Join card -->
+      <section id="joinCard" class="card join">
+        <h2>Join a room</h2>
+        <p class="muted">Enter a username and room (example: <b>general</b>)</p>
+        <form id="joinForm" class="joinForm">
+          <input id="username" placeholder="Username" maxlength="24" required />
+          <input id="room" placeholder="Room" maxlength="24" required value="general" />
+          <button type="submit">Join</button>
+        </form>
+        <p class="hint">Tip: Open this page in 2 tabs to test real-time messaging.</p>
+      </section>
+
+      <!-- Chat card -->
+      <section id="chatCard" class="card chat hidden">
+        <div id="messages" class="messages"></div>
+
+        <div class="typingRow">
+          <span id="typing" class="typing"></span>
+        </div>
+
+        <form id="msgForm" class="msgForm">
+          <input id="msg" placeholder="Type a message…" maxlength="2000" autocomplete="off" />
+          <button type="submit">Send</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="foot">
+      Backend: <code id="apiUrl"></code>
+    </footer>
+  </div>
+
+  <!-- Socket.IO client (CDN) -->
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
