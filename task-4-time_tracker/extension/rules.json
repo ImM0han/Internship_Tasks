@@ -1,0 +1,19 @@
+{
+  "productive": [
+    "github.com",
+    "gitlab.com",
+    "stackoverflow.com",
+    "leetcode.com",
+    "geeksforgeeks.org",
+    "developer.mozilla.org",
+    "docs.google.com"
+  ],
+  "unproductive": [
+    "instagram.com",
+    "facebook.com",
+    "youtube.com",
+    "x.com",
+    "twitter.com",
+    "reddit.com"
+  ]
+}
