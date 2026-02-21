@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather Fetch App (Public API)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">
+          <!-- simple inline logo -->
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M7 18a4 4 0 0 1 0-8 5.5 5.5 0 0 1 10.6 1.2A3.5 3.5 0 0 1 17.5 18H7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <h1>Weather Dashboard</h1>
+          <p>Live data from public APIs (Open-Meteo, no key)</p>
+        </div>
+      </div>
+
+      <form class="searchbar" id="form">
+        <input id="city" placeholder="Search city (e.g., Delhi, Mumbai, Bengaluru)" autocomplete="off" />
+        <button type="submit">Get Weather</button>
+      </form>
+    </header>
+
+    <main class="grid">
+      <!-- LEFT: Current + Hourly -->
+      <section class="card">
+        <div class="card-head">
+          <div>
+            <div class="title" id="placeTitle">Search a city</div>
+            <div class="meta" id="placeMeta">Current conditions + hourly forecast</div>
+          </div>
+          <div class="badge" id="tzBadge">—</div>
+        </div>
+
+        <div class="card-body">
+          <div class="current">
+            <div class="current-left">
+              <div class="icon-lg" id="currentIcon"></div>
+            </div>
+
+            <div class="current-right">
+              <div class="temp" id="tempBig">--°</div>
+              <div class="substats">
+                <div class="pill">
+                  <span class="k">Condition</span>
+                  <b class="v" id="cond">—</b>
+                </div>
+                <div class="pill">
+                  <span class="k">Wind</span>
+                  <b class="v" id="wind">—</b>
+                </div>
+                <div class="pill">
+                  <span class="k">Feels-like (approx.)</span>
+                  <b class="v" id="feels">—</b>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-title">
+            <h3>Next 12 hours</h3>
+            <span class="hint">Temperature</span>
+          </div>
+
+          <div class="hourly" id="hourly"></div>
+
+          <div class="status" id="status"></div>
+        </div>
+      </section>
+
+      <!-- RIGHT: Daily -->
+      <aside class="card">
+        <div class="card-head">
+          <div>
+            <div class="title">7-day forecast</div>
+            <div class="meta">High / Low temperature</div>
+          </div>
+          <div class="badge" id="updated">—</div>
+        </div>
+
+        <div class="card-body">
+          <div class="daily" id="daily"></div>
+
+          <footer class="foot">
+            Data: Open-Meteo Geocoding + Forecast APIs
+          </footer>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
